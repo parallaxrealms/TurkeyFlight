@@ -19,8 +19,8 @@ App.prototype.start = function(){
     //Game configuration
     const config = {
       type: Phaser.AUTO, //Phaser will decide how to render our game (WebGL or Canvas)
-      width: 360/2, // game width
-      height: 640/2, // game height
+      width: 640, // game width
+      height: 360, // game height
       parent: "game-container",
       title: "Turkey 'flight'",
       url: "http://christiancassara.com/turkeyflight/",
@@ -34,12 +34,14 @@ App.prototype.start = function(){
         }
       },
       pixelArt: true,
+      backgroundColor: 0x000000,
       zoom: 1,
       scene: scenes,
     };
 
     //Create Game
     let game = new Phaser.Game(config);
+    let showDebug = true;
 
     //Globals
     game.IS_DEV = this.IS_DEV;
@@ -51,7 +53,7 @@ App.prototype.start = function(){
       height: config.height,
       centerX: Math.round(0.5 * config.width),
       centerY: Math.round(0.5 * config.height),
-      tile: 16
+      tile: 32
     };
 
     //Sound

@@ -2,7 +2,7 @@
 function resizeApp(){
     // Width-height-ratio of game resolution
     // Replace 360 with your game width, and replace 640 with your game height
-    let game_ratio = 360 / 640;
+    let game_ratio = 640 / 360;
 
     // Make div full height of browser and keep the ratio of game resolution
     let div = document.getElementById("game-container");
