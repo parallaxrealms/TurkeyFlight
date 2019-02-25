@@ -15,6 +15,7 @@ App.prototype.start = function(){
     scenes.push(Boot);
     scenes.push(Preload);
     scenes.push(Menu);
+    scenes.push(Game);
 
     //Game configuration
     const config = {

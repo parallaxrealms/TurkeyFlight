@@ -29,6 +29,8 @@ class Preload extends Phaser.Scene {
     //...path
     this.load.setPath(this.URL + "assets/img");
     //..files
+    this.load.image("sky", "sky.png");
+
     this.load.spritesheet("sprite-player", "turkey_spritesheet.png", {
       frameWidth: 32,
       frameHeight: 32,
@@ -37,11 +39,24 @@ class Preload extends Phaser.Scene {
       spacing: 0
     });
 
+    this.load.spritesheet("tileset", "tilemap.png", {
+      frameWidth: 32,
+      frameHeight: 32,
+      endFrame: 23,
+      margin: 0,
+      spacing: 0
+    });
+
+
   }
 
   create() {
     //Go To Menu Scene
-    this.scene.start("Menu");
+    this.time.addEvent({
+      delay: 1000,
+      callback:() =>{this.scene.start("Menu"); },
+      callbackScope: this
+    });
   }
 
   createLoadingBar() {
