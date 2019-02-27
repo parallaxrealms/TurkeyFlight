@@ -8,7 +8,7 @@ class Generator {
     this.ctx = ctx;
 
     this.cols = 20;
-    this.rows = 1;
+    this.rows = 11;
 
     this.layers = {
       floor:[],
@@ -48,7 +48,7 @@ class Generator {
 
       for (let tx = 0 ; tx < cols ; tx++){
         x = (tx * this.CONFIG.tile);
-        y = (ty * this.CONFIG.tile);
+        y = (ty * this.CONFIG.tile) + this.CONFIG.map_offset * 2;
 
         spr = this.ctx.add.sprite(x,y,"tileset");
         spr.setOrigin(0, -10);
@@ -63,7 +63,11 @@ class Generator {
   }
 
   scrollFloor(){
-
+    let offset = this.ctx.cameras.main.scrollX - this.layers.floor[0][0].x;
+        if (offset >= this.CONFIG.tile){
+            this.destroyFloorCol();
+            this.appendFloorCol();
+        }
   }
 
   destroyFloorCol(){

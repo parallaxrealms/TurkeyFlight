@@ -64,7 +64,7 @@ class Preload extends Phaser.Scene {
     this.title = new Text(
       this, // ctx argument, reference to the Preload scene
       this.CONFIG.centerX, // x-coordinate
-      75, // y-coordinate
+      105, // y-coordinate
       'Loading Game', // string to write
       'preload', // styling key
       0.5 // origin
@@ -106,11 +106,11 @@ class Preload extends Phaser.Scene {
     let h = 36;
 
     this.progress.clear();
-    this.progress.fillStyle('0xFFFFFF', 1);
+    this.progress.fillStyle('0xFFFFFF", 1);
     this.progress.fillRect(0, 0, w * val, h);
 
     this.border.clear();
-    this.border.lineStyle(4, '0x4D6592', 1);
+    this.border.lineStyle(4, "0x4D6592", 1);
     this.border.strokeRect(0, 0, w * val, h);
 
     // Percentage in progress text

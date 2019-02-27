@@ -43,8 +43,7 @@ class Text {
   }
 
   //Text object
-  createText ()
-  {
+  createText (){
       let obj = this.ctx.add.bitmapText(
           this.x,
           this.y,

@@ -19,7 +19,7 @@ class Menu extends Phaser.Scene {
     this.title = new Text(
       this,
       this.CONFIG.centerX,
-      75,
+      95,
       "Turkey ' Flight '",
       "title"
     );
@@ -44,6 +44,7 @@ class Menu extends Phaser.Scene {
     this.bg.fillStyle("0x0484d1", 1);
     this.bg.fillRect(0,0,this.CONFIG.width,this.CONFIG.height);
   }
+
   createMouseInput() {
     this.input.on("pointerup", this.goPlay, this);
   }

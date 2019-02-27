@@ -18,11 +18,17 @@ class Game extends Phaser.Scene
     this.allow_input = false;
     this.is_paused = false;
     this.is_gameover = false;
+
+    //camera
+    this.cam_speed = {
+      base : 1,
+      current: 1,
+      max: 1
+    };
   }
 
   create() {
-    //create sky
-    this.add.image(320, 180, "sky");
+    this.bgSky = this.add.image(320, 180, "sky");
 
     //create floor
     this.generator.setup();
@@ -42,9 +48,26 @@ class Game extends Phaser.Scene
 
   //camera
   updateCamera(){
-
+    // Scroll camera
+    this.cameras.main.setScroll(
+        this.cameras.main.scrollX + this.cam_speed.current,
+        0
+	);
+  // Scroll sky
+    this.bgSky.setScrollFactor(0);
   }
-  setCamSpeed(){
+  setCamSpeed(speed){
+    this.cam_speed.base = speed;
+    this.cam_speed.current = speed;
 
+    this.cam_speed.current = Math.min(
+        this.cam_speed.current,
+        this.cam_speed.max
+    );
+
+    this.cam_speed.current = Math.max(
+        this.cam_speed.current,
+        0
+    );
   }
 }
